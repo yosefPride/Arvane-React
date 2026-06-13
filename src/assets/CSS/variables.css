@@ -1,0 +1,190 @@
+/**
+ * Global CSS Variables
+ * All colors, spacing, typography, and other design tokens defined here
+ * Makes it easy to maintain consistent design across the app
+ */
+
+:root {
+  /* Color Palette */
+  --primary-color: #241814;
+  --primary-dark: #1a0f0a;
+  --secondary-color: #3a2720;
+  --accent-gold: #c9a27c;
+  --accent-gold-dark: #a97d58;
+  --bg-light: #faf6f0;
+  --bg-lighter: #ffffff;
+  --text-body: #6f584a;
+  --text-secondary: #8b7355;
+  --text-inverse: #f5ece3;
+  --border-color: rgba(120, 89, 69, 0.14);
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-serif: "Georgia", "Garamond", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Responsive Spacing (using clamp) */
+  --spacing-responsive-sm: clamp(0.75rem, 2vw, 1.5rem);
+  --spacing-responsive-md: clamp(1rem, 3vw, 2rem);
+  --spacing-responsive-lg: clamp(1.5rem, 4vw, 3rem);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.8rem;
+  --radius-full: 999px;
+
+  /* Typography Sizes */
+  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 1.75vw, 1rem);
+  --text-base: clamp(1rem, 2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 2.5vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 3vw, 2rem);
+  --text-2xl: clamp(1.875rem, 4vw, 2.5rem);
+  --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  /* Z-index Scale */
+  --z-dropdown: 100;
+  --z-modal: 1000;
+  --z-header: 50;
+  --z-fixed: 999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-body);
+  background-color: var(--bg-light);
+  transition: background-color var(--transition-base);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
+
+h5,
+h6 {
+  font-size: var(--text-base);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-gold-dark);
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Utility for hiding elements visually but keeping them in DOM */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

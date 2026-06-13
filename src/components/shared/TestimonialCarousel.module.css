@@ -1,0 +1,88 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  min-height: 360px;
+}
+
+.carouselContent {
+  width: 100%;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.testimonialBox {
+  animation: slideIn var(--transition-base) ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-lg);
+  height: 300px;
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--text-body);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+  max-width: 700px;
+  overflow-wrap: anywhere;
+}
+
+.author {
+  font-weight: 600;
+  color: var(--accent-gold);
+  font-size: var(--text-sm);
+}
+
+.controls {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  padding: 0;
+}
+
+.dot:hover {
+  background-color: var(--accent-gold);
+}
+
+.dot.active {
+  background-color: var(--accent-gold);
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: var(--text-base);
+  }
+
+  .testimonialBox {
+    padding: var(--spacing-md);
+  }
+}

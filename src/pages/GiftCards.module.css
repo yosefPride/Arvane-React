@@ -1,0 +1,420 @@
+.gifts-highlights {
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    padding: 2rem 0;
+}
+
+.highlight-pill {
+    display: flex;
+    gap: 0.5rem;
+    min-width: auto;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 999px;
+    border: 1px solid;
+    box-shadow: none;
+    backdrop-filter: blur(2px);
+}
+
+.card {
+    position: relative;
+    padding: 1.25rem;
+    border-radius: 16px;
+
+    background: white;
+    border: 1px solid rgba(166, 124, 82, 0.35);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.09);
+
+    backdrop-filter: blur(2px);
+
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(166, 124, 82, 0.7);
+}
+
+.selectable {
+    cursor: pointer;
+}
+
+.selected {
+    border-color: var(--accent-gold);
+    background: rgba(201, 162, 124, 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* checkmark */
+.check {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 0.8rem;
+    font-weight: 900;
+
+    background: var(--accent-gold);
+    color: white;
+}
+
+/* -----------------------------
+   Utility section layout
+------------------------------ */
+
+.infoSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .infoSection {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+/* -----------------------------
+   Shared card (received/sent)
+------------------------------ */
+
+.existingCard {
+    background-color: rgba(201, 187, 175, 0.315);
+
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    border-radius: 18px;
+
+    backdrop-filter: blur(2px);
+}
+
+/* -----------------------------
+   Typography
+------------------------------ */
+
+.existingTitle {
+    margin: 0;
+    color: var(--accent-gold);
+    letter-spacing: 0.02em;
+}
+
+.existingSubtitle {
+    margin: 0;
+    color: var(--text-inverse-soft);
+    line-height: 1.5;
+}
+
+/* -----------------------------
+   CTA layout
+------------------------------ */
+
+.existingCtas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+}
+
+.existingCta {
+    text-decoration: none;
+}
+
+/* button styling */
+.existingCta button {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+
+    background: var(--accent-gold);
+    color: white;
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    box-shadow: inset 0 0 0 1px rgba(245, 236, 227, 0.9);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.existingCta button:hover {
+    transform: translateY(-3px);
+    background: var(--accent-gold-dark);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(245, 236, 227, 0.9),
+        0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+/* -----------------------------
+   Mobile optimization
+------------------------------ */
+
+@media (max-width: 640px) {
+    .existingCtas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .existingCta button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* -----------------------------
+   Payment modal
+------------------------------ */
+
+.gift-payment-modal {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    z-index: 9999;
+}
+
+/* Backdrop */
+.gift-payment-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 18, 15, 0.7);
+    backdrop-filter: blur(6px);
+}
+
+/* Dialog container */
+.gift-payment-dialog {
+    position: relative;
+    z-index: 2;
+
+    width: min(92vw, 44rem);
+    max-height: min(86vh, 46rem);
+    overflow: auto;
+
+    border-radius: 18px;
+    border: 1px solid rgba(245, 236, 227, 0.22);
+
+    background:
+        linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(248, 240, 230, 0.9)),
+        radial-gradient(circle at 20% 0%, rgba(201, 162, 124, 0.18), transparent 55%);
+
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.gift-payment-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1.15rem 1.25rem;
+
+    background: rgba(255, 250, 244, 0.92);
+    border-bottom: 1px solid rgba(107, 77, 58, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.gift-payment-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-strong);
+}
+
+/* Close button */
+.gift-payment-close {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+    border: 1px solid rgba(107, 77, 58, 0.18);
+
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--text-strong);
+
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.gift-payment-close:hover {
+    transform: scale(1.05);
+}
+
+/* Summary */
+.gift-payment-summary {
+    padding: 1.1rem 1.25rem 0;
+}
+
+.gift-payment-line {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
+/* Payment methods */
+.gift-payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+}
+
+.gift-payment-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    padding: 0.85rem;
+    border-radius: 14px;
+
+    border: 1px solid rgba(107, 77, 58, 0.18);
+    background: rgba(255, 255, 255, 0.55);
+
+    font-weight: 700;
+    color: var(--text-strong);
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.gift-payment-method:hover {
+    transform: translateY(-1px);
+}
+
+.gift-payment-method.is-active {
+    border-color: rgba(166, 124, 82, 0.7);
+    background: rgba(201, 162, 124, 0.22);
+}
+
+/* Panels */
+.gift-payment-panels {
+    padding: 0 1.25rem 1.25rem;
+}
+
+.gift-payment-panel {
+    border-radius: 16px;
+    border: 1px solid rgba(107, 77, 58, 0.12);
+
+    background: rgba(255, 255, 255, 0.4);
+    padding: 1rem;
+}
+
+/* Card grid */
+.gift-payment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+}
+
+.gift-payment-grid input {
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(107, 77, 58, 0.2);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Apple/PayPal placeholder */
+.gift-payment-placeholder {
+    display: grid;
+    gap: 0.85rem;
+    justify-items: start;
+    color: var(--text-body);
+}
+
+.gift-payment-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+
+    border: 1px solid rgba(107, 77, 58, 0.18);
+    background: rgba(201, 162, 124, 0.2);
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Actions */
+.gift-payment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+
+    padding: 0 1.25rem 1.25rem;
+}
+
+.gift-payment-secondary {
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+
+    border: 1px solid rgba(107, 77, 58, 0.22);
+    background: rgba(255, 255, 255, 0.6);
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.gift-payment-primary {
+    padding: 0.85rem 1.2rem;
+
+    border-radius: 12px;
+    border: 1px solid rgba(245, 236, 227, 0.12);
+
+    background: var(--primary-color);
+    color: var(--text-inverse);
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .gift-payment-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-payment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-payment-actions {
+        flex-direction: column;
+    }
+
+    .gift-payment-primary,
+    .gift-payment-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,79 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.required {
+  color: #e74c3c;
+  margin-left: var(--spacing-xs);
+}
+
+.input {
+  padding: var(--spacing-md);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  background-color: var(--bg-lighter);
+  color: var(--text-body);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 124, 0.1);
+}
+
+.input:hover:not(:focus) {
+  border-color: var(--accent-gold-dark);
+}
+
+.input.error {
+  border-color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.errorMessage {
+  font-size: var(--text-xs);
+  color: #e74c3c;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Disabled state */
+.input:disabled {
+  background-color: var(--bg-light);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Placeholder styles */
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .formGroup {
+    margin-bottom: var(--spacing-md);
+  }
+}

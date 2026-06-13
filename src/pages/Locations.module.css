@@ -1,0 +1,319 @@
+.locationsShowcase {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-2xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  min-height: calc(100vh - 200px);
+}
+
+.locationsSidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationsPreviewPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.locationsSearch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--surface-light);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: all var(--transition-fast);
+}
+
+.locationsSearch:focus-within {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 124, 0.1);
+}
+
+.locationsSearch i {
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: var(--text-base);
+  color: var(--text-body);
+  outline: none;
+  font-family: var(--font-sans);
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.locationsPreviewList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+/* Custom scrollbar */
+.locationsPreviewList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.locationsPreviewList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.locationsPreviewList::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.locationsPreviewList::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.locationPreviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--surface-light) 0%, var(--bg-light-soft) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.locationPreviewItem:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 4px 12px rgba(36, 24, 20, 0.1);
+  transform: translateY(-2px);
+}
+
+.locationPreviewItem.active {
+  background: linear-gradient(135deg, rgba(201, 162, 124, 0.12) 0%, rgba(201, 162, 124, 0.08) 100%);
+  border-color: var(--accent-gold);
+}
+
+.locationPreviewCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.locationTagRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.locationTag {
+  display: inline-block;
+  background: rgba(201, 162, 124, 0.2);
+  color: var(--accent-gold);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: var(--text-xs);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.locationTag.muted {
+  background: rgba(111, 88, 74, 0.12);
+  color: var(--text-secondary);
+}
+
+.locationPreviewItem h2 {
+  font-size: var(--text-2xl);
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.locationAddress {
+  font-size: var(--text-sm);
+  color: var(--accent-gold);
+  font-weight: 500;
+  margin: 0;
+}
+
+.locationPreviewItem > p {
+  font-size: var(--text-base);
+  color: var(--text-body);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.locationLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  margin-top: var(--spacing-md);
+  align-self: flex-start;
+}
+
+.locationLink:hover {
+  gap: var(--spacing-md);
+  color: var(--accent-gold-deep);
+}
+
+.locationsMapPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.mapCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  flex: 1;
+}
+
+.mapFrame {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: none;
+}
+
+.mapFrame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.selectedLocationDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(36, 24, 20, 0.04) 0%, transparent 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.detailItem strong {
+  color: var(--primary-color);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detailItem p,
+.detailItem a {
+  color: var(--text-body);
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+.detailItem a {
+  color: var(--accent-gold);
+  text-decoration: none;
+}
+
+.detailItem a:hover {
+  text-decoration: underline;
+  color: var(--accent-gold-deep);
+}
+
+.amenitiesList,
+.accessibilityList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.amenitiesList li,
+.accessibilityList li {
+  color: var(--text-body);
+  font-size: var(--text-sm);
+  margin-left: var(--spacing-lg);
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  color: var(--text-secondary);
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+
+/* Mobile & Tablet Styles */
+@media (max-width: 900px) {
+  .locationsShowcase {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    min-height: auto;
+    padding: var(--spacing-lg);
+  }
+
+  .selectedLocationDetails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .locationsShowcase {
+    padding: var(--spacing-md);
+  }
+
+  .locationsPreviewList {
+    max-height: 500px;
+  }
+
+  .locationTagRow {
+    gap: var(--spacing-xs);
+  }
+
+  .locationTag {
+    padding: 0.3rem 0.6rem;
+    font-size: var(--text-xs);
+  }
+
+  .locationPreviewItem h2 {
+    font-size: var(--text-lg);
+  }
+
+  .mapCard {
+    padding: var(--spacing-md);
+  }
+
+  .selectedLocationDetails {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .mapFrame {
+    aspect-ratio: 16/9;
+  }
+}
