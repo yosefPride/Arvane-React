@@ -46,3 +46,7 @@ coverage/
 # Temporary files
 tmp/
 temp/
+
+MIGRATION_SUMMARY.md
+SETUP_GUIDE.md
+
