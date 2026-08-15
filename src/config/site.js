@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
 
   // Contact Information
   contact: {
-    whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || "+972-50-7331829",
+    whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER,
     responseTime: "Within 24 hours",
     operatingHours: "Mon-Sat, 8AM-8PM",
     timezone: "Asia/Jerusalem",
