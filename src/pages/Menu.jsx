@@ -1,7 +1,7 @@
 import { useState } from "react";
 import HeroSection from "../components/shared/HeroSection";
 import MenuCard from "../components/shared/MenuCard";
-import { MENU_DATA, MENU_CATEGORIES } from "../data/menu";
+import { MENU_DATA, MENU_CATEGORIES } from "../data/menu/menu";
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState("trending");

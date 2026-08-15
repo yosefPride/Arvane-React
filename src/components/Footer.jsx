@@ -37,7 +37,7 @@ export default function Footer() {
           <div className={styles.footerColumn}>
             <h4>Company</h4>
             <Link to="/about">About Us</Link>
-            <Link to="/join-team">Join Our Team</Link>
+            <Link to="/join-team">Careers</Link>
             <Link to="/contact">Contact Us</Link>
           </div>
 
