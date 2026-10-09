@@ -1,1 +1,0 @@
-var e={sectionTitle:`_sectionTitle_1tmr8_1`,updated:`_updated_1tmr8_5`};export{e as t};

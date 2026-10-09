@@ -1,7 +1,8 @@
 # Dependencies
 node_modules/
 
-# Production build
+# Production build (built and deployed by .github/workflows/deploy.yml)
+dist
 dist-ssr
 *.local
 

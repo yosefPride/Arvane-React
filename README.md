@@ -59,6 +59,11 @@ src/
 3. Register it in `src/router.jsx`: `{ path: ROUTES.myPage, lazy: page(() => import("@/pages/MyPage/MyPage")) }`.
 4. Link to it from `config/site.js` (`navigation` or `footerNavigation`) if needed.
 
-## Deploying under a sub-path (e.g. GitHub Pages)
+## Deployment (GitHub Pages)
 
-Set `base` in `vite.config.js` (for example `base: "/arvanereact/"`). The router reads `import.meta.env.BASE_URL`, so links keep working. GitHub Pages needs a `404.html` copy of `index.html` so deep links resolve.
+Every push to `main` runs [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which builds the site and publishes `dist/` to https://yosefpride.github.io/Arvane-React/.
+
+- **Settings → Pages → Source** must be set to **GitHub Actions**.
+- `.env` is not committed. Set the same `VITE_*` values under **Settings → Secrets and variables → Actions → Variables**.
+- `base` in `vite.config.js` must match the repository name (`/Arvane-React/`). The router reads it from `import.meta.env.BASE_URL`.
+- The workflow copies `index.html` to `404.html`, so refreshing on a deep link such as `/Arvane-React/menu` still loads the app.
