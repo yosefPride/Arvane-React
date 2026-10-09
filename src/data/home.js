@@ -1,49 +1,32 @@
-import { menuImage } from "./menu";
+import { getMenuItem } from "./menu";
 import roastedBeans from "@/assets/images/home-page/roasted-beans.jpg";
 import chocolate from "@/assets/images/home-page/chocolate.jpg";
 import barista from "@/assets/images/home-page/barista.jpg";
 import relaxing from "@/assets/images/home-page/relaxing.jpg";
 
-export const FEATURED_PRODUCTS = [
+// Featured items come from the menu (one source of truth for name, price and
+// photo); `blurb` replaces the short menu description on the home page.
+const FEATURED = [
   {
-    id: "double-espresso",
-    name: "Double Espresso",
-    description:
-      "Bold, concentrated, and full-bodied for guests who love their coffee intense and clean.",
-    image: menuImage("drinks/double-espresso.jpeg"),
-    price: 2.5,
+    slug: "double-espresso",
+    blurb: "Bold, concentrated, and full-bodied for guests who love their coffee intense and clean.",
   },
   {
-    id: "cold-brew",
-    name: "Cold Brew",
-    description:
-      "Slow-steeped for hours to create a smooth, bold coffee with a crisp refreshing finish.",
-    image: menuImage("drinks/cold-brew.jpeg"),
-    price: 4.5,
+    slug: "cold-brew",
+    blurb: "Slow-steeped for hours to create a smooth, bold coffee with a crisp refreshing finish.",
   },
+  { slug: "honey-cinnamon-latte" },
   {
-    id: "honey-cinnamon-latte",
-    name: "Honey Cinnamon Latte",
-    description: "Latte sweetened with honey and cinnamon spice.",
-    image: menuImage("drinks/honey-cinnamon-latte.jpeg"),
-    price: 6.25,
+    slug: "chocolate-croissant",
+    blurb: "Buttery layers, crisp edges, and rich melted chocolate make this a daily favorite.",
   },
-  {
-    id: "chocolate-croissant",
-    name: "Chocolate Croissant",
-    description:
-      "Buttery layers, crisp edges, and rich melted chocolate make this a daily favorite.",
-    image: menuImage("food/chocolate-croissant.jpeg"),
-    price: 4.25,
-  },
-  {
-    id: "blueberry-muffin",
-    name: "Blueberry Muffin",
-    description: "Soft muffin packed with sweet blueberries.",
-    image: menuImage("food/blueberry-muffin.jpeg"),
-    price: 4.5,
-  },
+  { slug: "blueberry-muffin" },
 ];
+
+export const FEATURED_PRODUCTS = FEATURED.map(({ slug, blurb }) => {
+  const item = getMenuItem(slug);
+  return blurb ? { ...item, description: blurb } : item;
+});
 
 export const BRAND_VALUES = [
   {

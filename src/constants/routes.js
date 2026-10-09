@@ -2,6 +2,8 @@
 export const ROUTES = {
   home: "/",
   menu: "/menu",
+  menuItem: "/menu/:itemSlug",
+  cart: "/cart",
   locations: "/locations",
   contact: "/contact",
   reserve: "/reserve",
@@ -13,3 +15,9 @@ export const ROUTES = {
   termsPrivacy: "/terms-privacy",
   notice: "/notice",
 };
+
+/** /menu/honey-cinnamon-latte */
+export const menuItemPath = (slug) => `${ROUTES.menu}/${slug}`;
+
+/** /menu?category=drinks — the menu opens on that tab */
+export const menuCategoryPath = (categoryId) => `${ROUTES.menu}?category=${categoryId}`;

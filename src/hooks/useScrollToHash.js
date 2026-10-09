@@ -7,6 +7,9 @@ export function useScrollToHash() {
 
   useEffect(() => {
     if (!hash) return;
-    document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView();
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document
+      .getElementById(decodeURIComponent(hash.slice(1)))
+      ?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
   }, [hash]);
 }

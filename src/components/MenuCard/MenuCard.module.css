@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -73,6 +74,31 @@
   margin: 0;
   font-size: 1.15rem;
   line-height: 1.25;
+}
+
+.link {
+  color: inherit;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.link:hover {
+  color: inherit;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.card:has(.link:focus-visible) {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
 }
 
 /* The inline price is only shown in the compact mobile layout */

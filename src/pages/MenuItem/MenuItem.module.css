@@ -1,0 +1,165 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb: Menu › Drinks › Latte */
+.breadcrumb {
+  margin: var(--spacing-md) 0 var(--spacing-xl);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--text-sm);
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumb li + li::before {
+  content: "›";
+  color: var(--text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-gold-dark);
+}
+
+.breadcrumb [aria-current] {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Product */
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.media {
+  padding: 0.75rem;
+  border-radius: 2rem;
+  background: var(--bg-lighter);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 30px 70px rgba(36, 24, 20, 0.12);
+}
+
+.media img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  background: radial-gradient(circle at 50% 35%, #fffdf9, var(--surface-warm));
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name {
+  margin-bottom: var(--spacing-sm);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.price {
+  margin-bottom: var(--spacing-lg);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--primary-color);
+  color: var(--accent-gold);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.description {
+  max-width: 32rem;
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.cartAction {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.addButton {
+  gap: 0.6rem;
+  min-width: 15rem;
+}
+
+.cartStatus {
+  min-height: 1.5em;
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.cartStatus a {
+  font-weight: 600;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+/* Related items */
+.relatedSection {
+  background: linear-gradient(180deg, var(--bg-light), var(--surface-warm));
+}
+
+.related {
+  max-width: 1100px;
+  margin: var(--spacing-lg) auto var(--spacing-xl);
+}
+
+.related h2 {
+  font-size: var(--text-xl);
+}
+
+.notFound {
+  text-align: center;
+  padding-block: var(--spacing-3xl);
+}
+
+@media (max-width: 800px) {
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    max-width: 30rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartAction {
+    align-self: stretch;
+  }
+
+  .addButton {
+    width: 100%;
+    min-width: 0;
+  }
+}

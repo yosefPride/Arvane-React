@@ -1,0 +1,183 @@
+/* Payment dialog content (the dialog shell is ui/Modal) */
+/* Summary */
+.summary {
+    padding: 1.1rem 1.25rem 0;
+}
+
+.line {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
+/* Payment methods */
+.methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+}
+
+.method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    padding: 0.85rem;
+    border-radius: 14px;
+
+    border: 1px solid rgba(107, 77, 58, 0.18);
+    background: rgba(255, 255, 255, 0.55);
+
+    font-weight: 700;
+    color: var(--text-strong);
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.method:hover {
+    transform: translateY(-1px);
+}
+
+.method.active {
+    border-color: rgba(166, 124, 82, 0.7);
+    background: rgba(201, 162, 124, 0.22);
+}
+
+/* Panels */
+.panels {
+    padding: 0 1.25rem 1.25rem;
+}
+
+.panel {
+    border-radius: 16px;
+    border: 1px solid rgba(107, 77, 58, 0.12);
+
+    background: rgba(255, 255, 255, 0.4);
+    padding: 1rem;
+}
+
+/* Card grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+}
+
+.grid input {
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(107, 77, 58, 0.2);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+
+    border: 1px solid rgba(107, 77, 58, 0.18);
+    background: rgba(201, 162, 124, 0.2);
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+
+    padding: 0 1.25rem 1.25rem;
+}
+
+.secondary {
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+
+    border: 1px solid rgba(107, 77, 58, 0.22);
+    background: rgba(255, 255, 255, 0.6);
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary {
+    padding: 0.85rem 1.2rem;
+
+    border-radius: 12px;
+    border: 1px solid rgba(245, 236, 227, 0.12);
+
+    background: var(--primary-color);
+    color: var(--text-inverse);
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Success state */
+.success {
+    display: grid;
+    justify-items: center;
+    gap: 0.5rem;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+}
+
+.successIcon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: white;
+    font-size: 1.6rem;
+    box-shadow: 0 12px 28px rgba(169, 125, 88, 0.35);
+}
+
+.success h3 {
+    margin: 0;
+    color: var(--text-strong);
+}
+
+.success p {
+    max-width: 22rem;
+    margin: 0 0 1rem;
+}
+
+.primary:disabled {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .methods {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+        text-align: center;
+    }
+}

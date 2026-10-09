@@ -19,11 +19,6 @@ export const GIFT_CARD_HIGHLIGHTS = [
   { id: 4, text: "Digital & Physical", icon: "fa-solid fa-file-arrow-down" },
 ];
 
-export const PAYMENT_METHODS = [
-  { id: "card", label: "Card", icon: "fa-credit-card" },
-  { id: "applepay", label: "Apple Pay", icon: "fa-apple" },
-  { id: "paypal", label: "PayPal", icon: "fa-paypal" },
-];
 
 export const GIFT_CARD_SUPPORT = [
   {

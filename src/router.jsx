@@ -13,6 +13,8 @@ export const router = createBrowserRouter(
       children: [
         { path: ROUTES.home, lazy: page(() => import("@/pages/Home/Home")) },
         { path: ROUTES.menu, lazy: page(() => import("@/pages/Menu/Menu")) },
+        { path: ROUTES.menuItem, lazy: page(() => import("@/pages/MenuItem/MenuItem")) },
+        { path: ROUTES.cart, lazy: page(() => import("@/pages/Cart/Cart")) },
         { path: ROUTES.locations, lazy: page(() => import("@/pages/Locations/Locations")) },
         { path: ROUTES.contact, lazy: page(() => import("@/pages/Contact/Contact")) },
         { path: ROUTES.reserve, lazy: page(() => import("@/pages/ReserveTable/ReserveTable")) },

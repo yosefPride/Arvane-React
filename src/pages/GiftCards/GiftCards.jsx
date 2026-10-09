@@ -7,10 +7,11 @@ import {
   GIFT_CARD_OPTIONS,
   GIFT_CARD_SUPPORT,
 } from "@/data/giftCards";
+import PaymentModal from "@/components/PaymentModal/PaymentModal";
+import { simulateRequest } from "@/lib/api";
 import { cn } from "@/lib/cn";
 import heroImage from "@/assets/images/heros/gift-card-hero.jpg";
 import GiftCardPreview from "./GiftCardPreview";
-import PaymentModal from "./PaymentModal";
 import styles from "./GiftCards.module.css";
 
 const DEFAULT_OPTION = GIFT_CARD_OPTIONS[1];
@@ -151,8 +152,12 @@ export default function GiftCards() {
 
       <PaymentModal
         isOpen={isPaymentOpen}
-        amount={amount}
         onClose={() => setIsPaymentOpen(false)}
+        label="Gift Card"
+        amount={amount}
+        onPay={() => simulateRequest()}
+        successTitle="Gift card purchased"
+        successMessage="Thank you for your purchase."
       />
     </>
   );

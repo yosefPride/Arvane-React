@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { menuItemPath } from "@/constants/routes";
 import { formatPrice } from "@/lib/format";
 import styles from "./MenuCard.module.css";
 
@@ -15,7 +17,12 @@ export default function MenuCard({ item }) {
 
       <div className={styles.body}>
         <div className={styles.titleRow}>
-          <h3 className={styles.name}>{item.name}</h3>
+          <h3 className={styles.name}>
+            {/* Stretched over the whole card, so any click opens the item */}
+            <Link to={menuItemPath(item.slug)} className={styles.link}>
+              {item.name}
+            </Link>
+          </h3>
           <span className={styles.price}>
             <span className="sr-only">Price: </span>
             {price}

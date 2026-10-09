@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button, Grid, Hero, Section } from "@/components/ui";
 import MenuCard from "@/components/MenuCard/MenuCard";
-import { MENU_CATEGORIES } from "@/data/menu";
+import { DEFAULT_CATEGORY_ID, MENU_CATEGORIES, getMenuCategory } from "@/data/menu";
 import heroVideo from "@/assets/images/heros/menu-hero.mp4";
 import styles from "./Menu.module.css";
 
@@ -15,8 +15,16 @@ function groupBySubcategory(items) {
 }
 
 export default function Menu() {
-  const [activeId, setActiveId] = useState(MENU_CATEGORIES[0].id);
-  const activeCategory = MENU_CATEGORIES.find((category) => category.id === activeId);
+  // The active tab lives in the URL (?category=drinks) so Back and links restore it
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeCategory =
+    getMenuCategory(searchParams.get("category")) ?? getMenuCategory(DEFAULT_CATEGORY_ID);
+  const activeId = activeCategory.id;
+  const setActiveId = (id) =>
+    setSearchParams(id === DEFAULT_CATEGORY_ID ? {} : { category: id }, {
+      replace: true,
+      preventScrollReset: true,
+    });
   const groups = Object.entries(groupBySubcategory(activeCategory.items));
 
   return (
