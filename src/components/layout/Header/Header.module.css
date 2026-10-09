@@ -198,6 +198,7 @@
     }
 
     .nav a {
+        position: relative;
         font-size: clamp(0.82rem, 0.95vw, 0.98rem);
         width: auto;
         border: none;
@@ -205,9 +206,35 @@
         box-shadow: none;
     }
 
-    .nav a:hover {
-        color: #b98c67;
+    /* Gold underline that grows from the center on hover and marks the current page */
+    .nav a::after {
+        content: "";
+        position: absolute;
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 0.55rem;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+        color: #f3d8bb;
         background: none;
+        box-shadow: none;
         transform: none;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after,
+    .nav a[aria-current="page"]::after {
+        transform: scaleX(1);
+    }
+
+    .nav a[aria-current="page"] {
+        color: var(--accent-gold);
     }
 }
