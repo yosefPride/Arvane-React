@@ -2,6 +2,7 @@ export const MEMBERSHIP_TIERS = [
   {
     id: "starter",
     name: "Starter",
+    icon: "fa-solid fa-seedling",
     price: "$9.99",
     period: "/month",
     benefits: [
@@ -14,6 +15,7 @@ export const MEMBERSHIP_TIERS = [
   {
     id: "premium",
     name: "Premium",
+    icon: "fa-solid fa-mug-hot",
     price: "$19.99",
     period: "/month",
     popular: true,
@@ -30,6 +32,7 @@ export const MEMBERSHIP_TIERS = [
   {
     id: "elite",
     name: "Elite",
+    icon: "fa-solid fa-crown",
     price: "$39.99",
     period: "/month",
     benefits: [

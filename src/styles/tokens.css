@@ -15,6 +15,10 @@
   --text-secondary: #8b7355;
   --text-inverse: #f5ece3;
   --text-strong: #2c1d17;
+  --text-inverse-muted: rgba(234, 217, 201, 0.82);
+  --espresso-700: #2a1c17;
+  --espresso-900: #140d0b;
+  --surface-warm: #f2e8dc;
   --border-color: rgba(120, 89, 69, 0.14);
   --shadow-light: rgba(0, 0, 0, 0.05);
   --shadow-medium: rgba(0, 0, 0, 0.1);

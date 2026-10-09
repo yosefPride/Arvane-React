@@ -1,0 +1,36 @@
+.item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  color: var(--accent-gold);
+  background: rgba(201, 162, 124, 0.14);
+  border: 1px solid rgba(201, 162, 124, 0.35);
+  font-size: 1rem;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.text {
+  font-size: var(--text-sm);
+  line-height: var(--line-height-normal);
+}
+
+.text p {
+  margin: 0;
+}

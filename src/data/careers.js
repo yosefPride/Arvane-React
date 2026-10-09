@@ -1,10 +1,10 @@
 export const CAREER_PERKS = [
-  "Competitive compensation and benefits",
-  "Professional development opportunities",
-  "Flexible scheduling",
-  "Team-oriented work environment",
-  "Free coffee and meals on your shift",
-  "Growth opportunities within the company",
+  { title: "Competitive compensation and benefits", icon: "fa-solid fa-hand-holding-dollar" },
+  { title: "Professional development opportunities", icon: "fa-solid fa-graduation-cap" },
+  { title: "Flexible scheduling", icon: "fa-regular fa-calendar" },
+  { title: "Team-oriented work environment", icon: "fa-solid fa-people-group" },
+  { title: "Free coffee and meals on your shift", icon: "fa-solid fa-mug-hot" },
+  { title: "Growth opportunities within the company", icon: "fa-solid fa-seedling" },
 ];
 
 export const OPEN_POSITIONS = [

@@ -53,8 +53,28 @@
   margin-bottom: var(--spacing-lg);
 }
 
+.compact {
+  min-height: 0;
+  padding: clamp(3.5rem, 9vw, 6rem) var(--spacing-md) clamp(3rem, 7vw, 4.5rem);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(201, 162, 124, 0.2), transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(201, 162, 124, 0.12), transparent 45%),
+    linear-gradient(180deg, var(--espresso-700), var(--espresso-900));
+  border-bottom: 1px solid rgba(201, 162, 124, 0.18);
+}
+
+.compact .content {
+  max-width: min(720px, 100%);
+  padding: 0;
+}
+
+.compact .subtitle {
+  color: var(--text-inverse-muted);
+  margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
-  .hero {
+  .hero:not(.compact) {
     min-height: 360px;
   }
 
@@ -72,7 +92,7 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
+  .hero:not(.compact) {
     min-height: 300px;
   }
 

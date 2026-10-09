@@ -1,0 +1,26 @@
+.panel {
+  border-radius: 1.75rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.light {
+  background: var(--bg-lighter);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 24px 60px rgba(36, 24, 20, 0.08);
+}
+
+.dark {
+  position: relative;
+  overflow: hidden;
+  color: var(--text-inverse-muted);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(201, 162, 124, 0.22), transparent 45%),
+    linear-gradient(160deg, var(--espresso-700), var(--espresso-900));
+  box-shadow: 0 24px 60px rgba(22, 12, 9, 0.28);
+}
+
+.dark h2,
+.dark h3,
+.dark h4 {
+  color: var(--text-inverse);
+}

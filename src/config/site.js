@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 
   contact: {
     whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER ?? "",
-    responseTime: "Within 24 hours",
+    responseTime: "24 hours",
     operatingHours: "Mon-Sat, 8AM-8PM",
   },
 

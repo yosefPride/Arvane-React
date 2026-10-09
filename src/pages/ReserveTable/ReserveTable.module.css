@@ -1,16 +1,88 @@
-.container {
-  max-width: 600px;
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 2rem;
+.formPanel h2 {
+  margin-bottom: var(--spacing-xl);
 }
 
-.note {
-  text-align: center;
-  margin-top: 1.5rem;
+.fieldset {
+  border: none;
+  margin: 0 0 var(--spacing-lg);
+  padding: 0;
+}
+
+.fieldset + .fieldset {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.legend {
+  /* Floated so the fieldset's top border runs above it instead of through it */
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.legend + * {
+  clear: both;
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.aside {
+  position: sticky;
+  top: var(--spacing-lg);
+}
+
+.asideTitle {
+  margin-bottom: var(--spacing-lg);
+}
+
+.notes {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.help {
+  margin: var(--spacing-xl) 0 0;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(245, 236, 227, 0.14);
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+}
+
+.help a {
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aside {
+    position: static;
+  }
 }

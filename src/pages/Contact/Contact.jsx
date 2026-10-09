@@ -1,5 +1,17 @@
-import { Alert, Button, Card, FormField, Grid, Hero, Section } from "@/components/ui";
+import { Link } from "react-router-dom";
+import {
+  Alert,
+  Button,
+  Eyebrow,
+  FormField,
+  FormRow,
+  Hero,
+  InfoItem,
+  Panel,
+  Section,
+} from "@/components/ui";
 import { SITE_CONFIG } from "@/config/site";
+import { ROUTES } from "@/constants/routes";
 import { useForm } from "@/hooks/useForm";
 import { simulateRequest } from "@/lib/api";
 import { getWhatsAppLink } from "@/lib/whatsapp";
@@ -24,23 +36,54 @@ export default function Contact() {
       />
 
       <Section>
-        <Grid columns={2} className={styles.layout}>
-          <div>
-            <h2>Send us a Message</h2>
+        <div className={styles.layout}>
+          <Panel variant="dark" className={styles.info}>
+            <Eyebrow>Get in Touch</Eyebrow>
+            <h2>We&apos;d love to hear from you</h2>
+            <p className={styles.lead}>
+              Questions, feedback, or a special request — reach out and a real person will reply.
+            </p>
+
+            <div className={styles.infoList}>
+              <InfoItem icon="fa-regular fa-clock" title="Operating Hours">
+                {SITE_CONFIG.contact.operatingHours}
+              </InfoItem>
+              <InfoItem icon="fa-regular fa-envelope" title="Response Time">
+                We reply to every message within {SITE_CONFIG.contact.responseTime}.
+              </InfoItem>
+              <InfoItem icon="fa-solid fa-location-dot" title="Visit Us">
+                You can also visit any of our locations directly. We&apos;re always happy to chat!{" "}
+                <Link to={ROUTES.locations} className={styles.inlineLink}>
+                  Find a cafe <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+              </InfoItem>
+            </div>
+
+            <Button href={getWhatsAppLink()} external fullWidth className={styles.whatsapp}>
+              <i className="fa-brands fa-whatsapp" aria-hidden="true" />
+              Chat on WhatsApp
+            </Button>
+          </Panel>
+
+          <Panel className={styles.formPanel}>
+            <Eyebrow>Send a Message</Eyebrow>
+            <h2>How can we help?</h2>
 
             {isSubmitted && (
               <Alert>Thank you for your message! We&apos;ll get back to you within 24 hours.</Alert>
             )}
 
             <form onSubmit={handleSubmit} noValidate>
-              <FormField label="Full Name" required placeholder="John Doe" {...field("name")} />
-              <FormField
-                label="Email Address"
-                type="email"
-                required
-                placeholder="john@example.com"
-                {...field("email")}
-              />
+              <FormRow>
+                <FormField label="Full Name" required placeholder="John Doe" {...field("name")} />
+                <FormField
+                  label="Email Address"
+                  type="email"
+                  required
+                  placeholder="john@example.com"
+                  {...field("email")}
+                />
+              </FormRow>
               <FormField
                 label="Subject"
                 required
@@ -60,38 +103,8 @@ export default function Contact() {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
-          </div>
-
-          <div>
-            <h2>Get in Touch</h2>
-
-            <div className={styles.infoList}>
-              <Card className={styles.infoCard}>
-                <h4>Operating Hours</h4>
-                <p>{SITE_CONFIG.contact.operatingHours}</p>
-              </Card>
-
-              <Card className={styles.infoCard}>
-                <h4>Response Time</h4>
-                <p>We&apos;ll respond to your inquiry within {SITE_CONFIG.contact.responseTime}</p>
-              </Card>
-
-              <Card className={styles.infoCard}>
-                <h4>WhatsApp Support</h4>
-                <Button href={getWhatsAppLink()} external variant="outline">
-                  <i className="fa-brands fa-whatsapp" aria-hidden="true" /> Start Chat
-                </Button>
-              </Card>
-
-              <Card className={styles.infoCard}>
-                <h4>Visit Us</h4>
-                <p className={styles.small}>
-                  You can also visit any of our locations directly. We&apos;re always happy to chat!
-                </p>
-              </Card>
-            </div>
-          </div>
-        </Grid>
+          </Panel>
+        </div>
       </Section>
     </>
   );

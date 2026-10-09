@@ -1,20 +1,28 @@
-import { Card } from "@/components/ui";
 import { formatPrice } from "@/lib/format";
 import styles from "./MenuCard.module.css";
 
 export default function MenuCard({ item }) {
+  const price = formatPrice(item.price);
+
   return (
-    <Card as="article" className={styles.menuCard}>
-      <div className={styles.imageWrapper}>
+    <article className={styles.card}>
+      <div className={styles.media}>
         <img src={item.image} alt={item.altText || item.name} loading="lazy" />
+        <span className={styles.priceTag} aria-hidden="true">
+          {price}
+        </span>
       </div>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <h3>{item.name}</h3>
-          <span className={styles.price}>{formatPrice(item.price)}</span>
+
+      <div className={styles.body}>
+        <div className={styles.titleRow}>
+          <h3 className={styles.name}>{item.name}</h3>
+          <span className={styles.price}>
+            <span className="sr-only">Price: </span>
+            {price}
+          </span>
         </div>
         <p className={styles.description}>{item.description}</p>
       </div>
-    </Card>
+    </article>
   );
 }

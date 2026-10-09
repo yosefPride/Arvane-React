@@ -1,4 +1,4 @@
-const MAX_GUESTS = 20;
+export const MAX_GUESTS = 20;
 
 export const GUEST_OPTIONS = Array.from({ length: MAX_GUESTS }, (_, i) => ({
   value: String(i + 1),

@@ -48,7 +48,15 @@ export default function Menu() {
         <div role="tabpanel" aria-label={activeCategory.label}>
           {groups.map(([label, items]) => (
             <div key={label} className={label ? styles.group : undefined}>
-              {label && <h2 className={styles.groupTitle}>{label}</h2>}
+              {label && (
+                <h2 className={styles.groupTitle}>
+                  {label}
+                  <span className={styles.count}>
+                    {items.length}
+                    <span className="sr-only"> items</span>
+                  </span>
+                </h2>
+              )}
               <Grid columns={5}>
                 {items.map((item) => (
                   <MenuCard key={item.id} item={item} />

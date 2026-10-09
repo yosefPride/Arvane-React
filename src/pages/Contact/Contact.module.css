@@ -1,22 +1,50 @@
 .layout {
-  align-items: start;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: stretch;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lead {
+  margin-bottom: var(--spacing-xl);
 }
 
 .infoList {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
-.infoCard h4 {
-  color: var(--accent-gold);
-  margin-bottom: 0.5rem;
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  font-weight: 600;
 }
 
-.infoCard p {
-  margin: 0;
+.whatsapp {
+  margin-top: auto;
+  gap: 0.6rem;
 }
 
-.infoCard .small {
-  font-size: var(--text-sm);
+.formPanel h2 {
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    order: 2;
+  }
 }
