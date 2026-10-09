@@ -1,4 +1,6 @@
-const HOME_BREWING = [
+import { menuImage } from "./images";
+
+const HOME_BREWING_ITEMS = [
     {
       id: "homebrewing-1",
       name: "Yirgacheffe",
@@ -65,7 +67,7 @@ const HOME_BREWING = [
     },
   ]
 
-export const buildHomeBrewingItems = () => HOME_BREWING.map((item) => ({
+export const HOME_BREWING = HOME_BREWING_ITEMS.map((item) => ({
   ...item,
-  image: `src/assets/images/home-brewing/${item.image}`,
+  image: menuImage(`home-brewing/${item.image}`),
 }));

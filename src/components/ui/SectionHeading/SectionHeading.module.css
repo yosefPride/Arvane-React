@@ -1,0 +1,26 @@
+.heading {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.heading h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.heading p {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}

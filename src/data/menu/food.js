@@ -1,11 +1,6 @@
-const FOOD_CATEGORY_LABELS = {
-    bakery: "Bakery",
-    breakfast: "Breakfast",
-    lunch: "Lunch",
-    dinner: "Dinner"
-};
+import { menuImage } from "./images";
 
-export const FOOD_BY_CATEGORY = {
+const FOOD_BY_CATEGORY = {
     bakery: [
         {
         id: "bakery-1",
@@ -243,21 +238,12 @@ export const FOOD_BY_CATEGORY = {
     ]
 }
 
-const buildItemsForCategory = ([subcategory, items]) =>
-    items.map((item) => ({
-      ...item,
-      id: `food-${item.id}`,
-      image: `src/assets/images/food/${item.image}`,
-      category: subcategory,
-      subcategory,
-    }));
-
-export const buildFoodItems = (category) => {
-  if (category) {
-    return FOOD_BY_CATEGORY[category]
-      ? buildItemsForCategory([category, FOOD_BY_CATEGORY[category]])
-      : [];
-  }
-
-  return Object.entries(FOOD_BY_CATEGORY).flatMap(buildItemsForCategory);
-};
+/** Food items for one category: "bakery" | "breakfast" | "lunch" | "dinner". */
+export const getFoodItems = (category) =>
+  (FOOD_BY_CATEGORY[category] ?? []).map((item) => ({
+    ...item,
+    id: `food-${item.id}`,
+    image: menuImage(`food/${item.image}`),
+    category,
+    subcategory: category,
+  }));

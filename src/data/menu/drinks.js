@@ -1,3 +1,5 @@
+import { menuImage } from "./images";
+
 const DRINK_CATEGORY_LABELS = {
   espressoClassics: "Espresso Classics",
   specialtyLattes: "Specialty Lattes",
@@ -259,14 +261,13 @@ const DRINKS_BY_CATEGORY = {
   ],
 };
 
-export const buildDrinkItems = () =>
-  Object.entries(DRINKS_BY_CATEGORY).flatMap(([subcategory, items]) =>
-    items.map((item) => ({
-      ...item,
-      id: `drinks-${item.id}`,
-      image: `src/assets/images/drinks/${item.image}`,
-      category: "drinks",
-      subcategory,
-      subcategoryLabel: DRINK_CATEGORY_LABELS[subcategory],
-    }))
-  );
+export const DRINKS = Object.entries(DRINKS_BY_CATEGORY).flatMap(([subcategory, items]) =>
+  items.map((item) => ({
+    ...item,
+    id: `drinks-${item.id}`,
+    image: menuImage(`drinks/${item.image}`),
+    category: "drinks",
+    subcategory,
+    subcategoryLabel: DRINK_CATEGORY_LABELS[subcategory],
+  }))
+);

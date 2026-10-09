@@ -1,0 +1,4 @@
+.notFound {
+  text-align: center;
+  padding-block: var(--spacing-3xl);
+}

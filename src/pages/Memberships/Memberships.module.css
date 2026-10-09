@@ -1,0 +1,67 @@
+.heading {
+  margin-bottom: 3rem;
+}
+
+.heading h2 {
+  margin-bottom: 1rem;
+}
+
+.heading p {
+  max-width: none;
+  color: inherit;
+}
+
+.tier {
+  position: relative;
+}
+
+.popular {
+  border: 2px solid var(--accent-gold);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: var(--accent-gold);
+  color: var(--primary-color);
+  padding: 0.25rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+}
+
+.pricing {
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-gold);
+}
+
+.period {
+  color: var(--text-secondary);
+}
+
+.benefits {
+  padding: 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.benefits li {
+  font-size: var(--text-sm);
+}
+
+.check {
+  color: var(--accent-gold);
+  margin-right: 0.5rem;
+}

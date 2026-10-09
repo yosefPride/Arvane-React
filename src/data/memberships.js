@@ -1,0 +1,46 @@
+export const MEMBERSHIP_TIERS = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: "$9.99",
+    period: "/month",
+    benefits: [
+      "10% discount on all purchases",
+      "Free medium drink with every purchase",
+      "Monthly exclusive offers",
+      "Early access to new products",
+    ],
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    price: "$19.99",
+    period: "/month",
+    popular: true,
+    benefits: [
+      "15% discount on all purchases",
+      "Free large drink with every purchase",
+      "Weekly exclusive offers",
+      "Early access to new products",
+      "Free pastry once a week",
+      "Priority seating",
+      "Free WiFi priority",
+    ],
+  },
+  {
+    id: "elite",
+    name: "Elite",
+    price: "$39.99",
+    period: "/month",
+    benefits: [
+      "20% discount on all purchases",
+      "Unlimited free drinks (1 per day)",
+      "Daily exclusive offers",
+      "Premium event invitations",
+      "Free pastry twice a week",
+      "Reserved seating",
+      "Complimentary gift card ($50/month)",
+      "Personal barista consultations",
+    ],
+  },
+];

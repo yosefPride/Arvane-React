@@ -1,0 +1,1 @@
+import{_ as e,g as t,h as n}from"./index-C8BGTi7B.js";var r=e(t(),1);function i(){let{hash:e}=n();(0,r.useEffect)(()=>{e&&document.getElementById(decodeURIComponent(e.slice(1)))?.scrollIntoView()},[e])}export{i as t};

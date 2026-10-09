@@ -1,0 +1,16 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.group {
+  margin-bottom: 3rem;
+}
+
+.groupTitle {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

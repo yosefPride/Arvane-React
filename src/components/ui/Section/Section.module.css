@@ -1,0 +1,8 @@
+.section {
+  padding: var(--spacing-responsive-lg) var(--spacing-responsive-md);
+}
+
+.narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -95,5 +95,3 @@ export const LOCATIONS = [
       "Best for relaxed afternoons, outdoor seating, and coffee with a view.",
   },
 ];
-
-export default LOCATIONS;

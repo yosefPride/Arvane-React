@@ -1,4 +1,6 @@
-const TRENDING = [
+import { menuImage } from "./images";
+
+const TRENDING_ITEMS = [
     {
       id: "trending-1",
       name: "Espresso",
@@ -33,9 +35,7 @@ const TRENDING = [
     },
 ]
 
-export const buildTrendingItems = () => TRENDING.map((item) => ({
-      ...item,
-      id: `trending-${item.id}`,
-      image: `src/assets/images/drinks/${item.image}`,
-      category: "trending",
+export const TRENDING = TRENDING_ITEMS.map((item) => ({
+  ...item,
+  image: menuImage(`drinks/${item.image}`),
 }));

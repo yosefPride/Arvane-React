@@ -1,0 +1,22 @@
+.layout {
+  align-items: start;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoCard h4 {
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+}
+
+.infoCard p {
+  margin: 0;
+}
+
+.infoCard .small {
+  font-size: var(--text-sm);
+}
