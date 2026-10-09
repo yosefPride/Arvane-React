@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "@/components/ui";
-import { CUSTOM_AMOUNT, PAYMENT_METHODS } from "@/data/giftCards";
+import { PAYMENT_METHODS } from "@/data/giftCards";
 import { cn } from "@/lib/cn";
 import styles from "./GiftCards.module.css";
 
@@ -11,24 +11,17 @@ const CARD_FIELDS = [
   { name: "cardName", placeholder: "Name on Card", autoComplete: "cc-name" },
 ];
 
-export default function PaymentModal({ isOpen, card, onClose }) {
+export default function PaymentModal({ isOpen, amount, onClose }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Payment">
-      {card && <PaymentForm card={card} onClose={onClose} />}
+      {amount !== null && <PaymentForm amount={amount} onClose={onClose} />}
     </Modal>
   );
 }
 
-function PaymentForm({ card, onClose }) {
+function PaymentForm({ amount, onClose }) {
   const [method, setMethod] = useState(PAYMENT_METHODS[0].id);
-  const [customAmount, setCustomAmount] = useState("");
-
-  const isCustom = card.amount === CUSTOM_AMOUNT;
-  const displayAmount = isCustom
-    ? customAmount
-      ? `$${customAmount}`
-      : "Custom amount"
-    : `$${card.amount}`;
+  const displayAmount = `$${amount}`;
 
   return (
     <>
@@ -37,18 +30,6 @@ function PaymentForm({ card, onClose }) {
           <span>Gift Card</span>
           <span>{displayAmount}</span>
         </p>
-
-        {isCustom && (
-          <input
-            type="number"
-            min="1"
-            className={styles.customAmount}
-            placeholder="Enter custom amount"
-            aria-label="Custom amount"
-            value={customAmount}
-            onChange={(e) => setCustomAmount(e.target.value)}
-          />
-        )}
       </div>
 
       <div className={styles.paymentMethods} role="tablist" aria-label="Payment method">
@@ -99,11 +80,7 @@ function PaymentForm({ card, onClose }) {
         <button type="button" onClick={onClose} className={styles.paymentSecondary}>
           Back
         </button>
-        <button
-          type="button"
-          className={styles.paymentPrimary}
-          disabled={isCustom && !customAmount}
-        >
+        <button type="button" className={styles.paymentPrimary}>
           Pay {displayAmount}
         </button>
       </div>

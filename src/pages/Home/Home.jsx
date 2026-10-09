@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button, Grid, Hero, Section, SectionHeading } from "@/components/ui";
 import MenuCard from "@/components/MenuCard/MenuCard";
 import { SITE_CONFIG } from "@/config/site";
@@ -8,7 +9,7 @@ import {
   MEMBERSHIP_BENEFITS,
   MEMBERSHIP_CARD_PERKS,
 } from "@/data/home";
-import { LOCATIONS } from "@/data/locations";
+import { MEMBERSHIP_TIERS } from "@/data/memberships";
 import { TESTIMONIALS } from "@/data/testimonials";
 import { useScrollToHash } from "@/hooks/useScrollToHash";
 import heroVideo from "@/assets/images/heros/hero-video.mp4";
@@ -16,7 +17,7 @@ import FeatureBox from "./components/FeatureBox";
 import TestimonialCarousel from "./components/TestimonialCarousel";
 import styles from "./Home.module.css";
 
-const HOME_LOCATIONS_COUNT = 3;
+const FEATURED_TIER = MEMBERSHIP_TIERS.find((tier) => tier.popular);
 
 export default function Home() {
   useScrollToHash();
@@ -94,15 +95,30 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.membershipCard}>
-            <span className={styles.cardTag}>Member Favorite</span>
-            <h3>The Everyday Perks Card</h3>
-            <p>Built for regulars who want their coffee habit to feel a little more special.</p>
-            <ul>
-              {MEMBERSHIP_CARD_PERKS.map((perk) => (
-                <li key={perk}>{perk}</li>
-              ))}
-            </ul>
+          <div className={styles.membershipCards}>
+            <PerkCard
+              tag="Member Favorite"
+              title="The Everyday Perks Card"
+              items={MEMBERSHIP_CARD_PERKS}
+            >
+              <p>Built for regulars who want their coffee habit to feel a little more special.</p>
+            </PerkCard>
+
+            <PerkCard
+              tag="Most Popular Plan"
+              title={`${FEATURED_TIER.name} Membership`}
+              items={FEATURED_TIER.benefits.slice(0, 3)}
+              action={
+                <Link to={ROUTES.memberships} className={styles.cardLink}>
+                  Compare all plans <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                </Link>
+              }
+            >
+              <p className={styles.cardPrice}>
+                <strong>{FEATURED_TIER.price}</strong>
+                {FEATURED_TIER.period}
+              </p>
+            </PerkCard>
           </div>
         </div>
       </section>
@@ -117,29 +133,24 @@ export default function Home() {
               Find a Location
             </Button>
           </div>
-
-          <div className={styles.locationsTableWrap}>
-            <table className={styles.locationsTable}>
-              <thead>
-                <tr>
-                  <th scope="col">Location</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Hours</th>
-                </tr>
-              </thead>
-              <tbody>
-                {LOCATIONS.slice(0, HOME_LOCATIONS_COUNT).map((location) => (
-                  <tr key={location.id}>
-                    <td>{location.name}</td>
-                    <td>{location.address}</td>
-                    <td>{location.hours}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
     </>
+  );
+}
+
+function PerkCard({ tag, title, items, action, children }) {
+  return (
+    <div className={styles.membershipCard}>
+      <span className={styles.cardTag}>{tag}</span>
+      <h3>{title}</h3>
+      {children}
+      <ul>
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      {action}
+    </div>
   );
 }
